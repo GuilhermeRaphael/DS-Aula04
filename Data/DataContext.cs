@@ -15,7 +15,7 @@ namespace RpgApi.Data
         {
         }
         public DbSet<Personagem> TB_PERSONAGENS { get; set; }
-
+        public DbSet<Arma> TB_ARMAS { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -31,6 +31,19 @@ namespace RpgApi.Data
             new Personagem() { Id = 5, Nome = "Hobbit", PontosVida=100, Forca=20, Defesa=17, Inteligencia=31, Classe=ClasseEnum.Cavaleiro },
             new Personagem() { Id = 6, Nome = "Celeborn", PontosVida=100, Forca=21, Defesa=13, Inteligencia=34, Classe=ClasseEnum.Clerigo },
             new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
+            );
+
+            modelBuilder.Entity<Arma>().ToTable("TB_ARMAS");
+
+            modelBuilder.Entity<Arma>().HasData
+            (
+            new Arma() { Id = 1, Nome = "Espada", Dano = 5},
+            new Arma() { Id = 2, Nome = "Machado", Dano = 7},
+            new Arma() { Id = 3, Nome = "Cajado", Dano = 5},
+            new Arma() { Id = 4, Nome = "Varinha", Dano =7},
+            new Arma() { Id = 5, Nome = "Escudo",  Dano = 3},
+            new Arma() { Id = 6, Nome = "Besta", Dano =8},
+            new Arma() { Id = 7, Nome = "Lança", Dano = 7 }
             );
 
             // Area para futuros Inserts no banco de dados, so existe um ModelCreating
